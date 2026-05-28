@@ -1,0 +1,25 @@
+.header {
+    height: 60px;
+    width: 100%;
+    background-color: #d4bcbc;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.header-name {
+    font-size: 24px;
+    font-weight: bold;
+    color: #6d4949;
+    margin-left: 20px;
+}
+
+.hero-img {
+    padding: 3px;
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #6d4949;
+    margin-right: 20px;
+}
