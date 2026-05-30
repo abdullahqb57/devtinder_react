@@ -1,12 +1,15 @@
 import React, {useState} from 'react'
 import {useMutation} from '@tanstack/react-query'
 import axios from 'axios'
+import { useDispatch } from 'react-redux';
 import '../styles/login.css'
+import { addUser } from '../store/userSlice';
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const dispatch = useDispatch();
   const handleLogin = async ({email, password}) => {
     try {
       const {data} = await axios.post('http://localhost:3000/login', {email, password}, { withCredentials: true});
@@ -20,7 +23,8 @@ const Login = () => {
   const loginMutation = useMutation({
     mutationFn: handleLogin,
     onSuccess: (data) => {
-      console.log('Login successful:', data);
+      console.log('Login successful:', data?.user);
+      dispatch(addUser(data?.user));
     },
     onError: (error) => {
       console.error('Login failed:', error);

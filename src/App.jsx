@@ -5,10 +5,13 @@ import Body from './components/body';
 import Footer from './components/footer';
 import Login from './components/login';
 import './App.css'
+import { Provider } from 'react-redux';
+import appStore from './store/appStore';
 
 function App() {
 
   return (
+    <Provider store={appStore}>
     <BrowserRouter basename='/'>
       <Header />
       <Routes>
@@ -19,6 +22,7 @@ function App() {
       </Routes>
       <Footer />
     </BrowserRouter >
+    </Provider>
   )
 }
 
