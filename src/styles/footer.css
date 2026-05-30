@@ -1,0 +1,20 @@
+.footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    width: 100%;
+    position: fixed;
+    bottom: 0;
+    background-color: #a9a5a5;
+}
+
+.social-icon {
+    padding: 3px;
+    height: 20px;
+    width: 20px;
+    object-fit: cover;
+    border-radius: 50%;
+    border: 2px solid #6d4949;
+    margin: 0 5px;
+}
