@@ -1,7 +1,7 @@
 .header {
     height: 60px;
     width: 100%;
-    background-color: #a9a5a5;
+    background-color: #242222;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -10,7 +10,7 @@
 .header-name {
     font-size: 24px;
     font-weight: bold;
-    color: #6d4949;
+    color: #bba2a2;
     margin-left: 20px;
 }
 
@@ -20,6 +20,6 @@
     width: 20px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #6d4949;
+    border: 2px solid #242222;
     margin-right: 20px;
 }

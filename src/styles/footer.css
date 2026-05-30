@@ -6,7 +6,7 @@
     width: 100%;
     position: fixed;
     bottom: 0;
-    background-color: #a9a5a5;
+    background-color: #242222;
 }
 
 .social-icon {
@@ -15,6 +15,6 @@
     width: 20px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #6d4949;
+    border: 2px solid #242222;
     margin: 0 5px;
 }
