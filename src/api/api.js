@@ -2,21 +2,20 @@ import axios from 'axios';
 import { BASE_URL } from '../utils/constants';
 export const handleLogin = async ({email, password}) => {
     try {
-      const {data} = await axios.post(`${BASE_URL}login`, {email, password}, { withCredentials: true});
-      return data;
+      const res = await axios.post(`${BASE_URL}login`, {email, password}, { withCredentials: true});
+      return res.data;
     } catch (error) {
-      console.error('Error during login:', error);
-      throw error; // Rethrow the error to be caught by onError in useMutation
+      console.error('Error during login:', error.response?.data || error.message);
+      return error.response?.data || error.message;
     }
 }
 
 export const handleLogout = async () => {
     try {
-      const {data} =await axios.post(`${BASE_URL}logout`, { withCredentials: true});
-      return data;
+      const response = await axios.post(`${BASE_URL}logout`, {}, { withCredentials: true });
+      return response;
     } catch (error) {
-      console.error('Error during logout:', error);
-      throw error;
+      return error.response?.data || error.message;
     }
 }
 
@@ -25,7 +24,7 @@ export const fetchUser = async () => {
       const response = await axios.get(`${BASE_URL}profile/view`, { withCredentials: true});
       return response;
     } catch (error) {
-        return error.response.data || error.message;
+        return error.response?.data || error.message;
     }
 }
 

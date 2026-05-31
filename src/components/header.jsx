@@ -3,7 +3,7 @@ import smile from '../assets/smile.png'
 import '../styles/header.css'
 import { useSelector } from 'react-redux';
 import {handleLogout} from '../api/api';
-import { useNavigate } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { removeUser } from '../store/userSlice';
 import { useDispatch } from 'react-redux';
 
@@ -34,9 +34,9 @@ const Header = () => {
              {toggleMenu && userDetails && (
                 <div className='logout-btn'>
                 <ul>
-                    <li><a >Profile</a></li>
-                    <li><a >Settings</a></li>
-                    <li><a onClick={logout}>Logout</a></li>
+                    <li><Link to="/profile">Profile</Link></li>
+                    <li><Link to="/settings">Settings</Link></li>
+                    <li><Link onClick={logout}>Logout</Link></li>
                 </ul>
             </div>
              )}

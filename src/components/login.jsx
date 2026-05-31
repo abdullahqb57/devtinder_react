@@ -11,18 +11,25 @@ const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
   const navigate = useNavigate();
   const dispatch = useDispatch();
   
   const loginMutation = useMutation({
     mutationFn: handleLogin,
     onSuccess: (data) => {
-      console.log('Login successful:', data?.user);
-      dispatch(addUser(data?.user));
-      navigate('/'); // Redirect to home page after successful login
+      console.log('Login successful:', data);
+      if(data?.status === 200) {
+        dispatch(addUser(data?.user));
+        navigate('/'); 
+      } else if (data?.status === 400) {
+        setError(data?.message || 'Login failed. Please check your credentials and try again.');
+      }
+      
     },
     onError: (error) => {
       console.error('Login failed:', error);
+      setError(error?.message || 'An error occurred during login.');
     },
   });
 
@@ -54,6 +61,7 @@ const Login = () => {
                     onChange={(e) => setPassword(e.target.value)}
                 /> 
             </div>
+            {error && <p className='error-message'>{error}</p>}
             <button className='login-button' onClick = {onSubmit}>Login</button>
     </div>
   )
