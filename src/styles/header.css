@@ -21,10 +21,52 @@
     object-fit: cover;
     border-radius: 50%;
     border: 2px solid #72bad8;
-    margin-right: 20px;
+    margin:  0 20px;
+    cursor: pointer;
+    position: relative;
 }
 
 .user-info {
     display: flex;
     align-items: center;
+}
+
+.logout-btn {
+    position: absolute;
+    top: 44px;
+    right: 0px;
+    height: 86px;
+    width: 114px;
+    background-color: #242222;
+    color: #fff;
+    border:#bba2a2 solid 1px;
+    display: flex;
+    border-radius: 5px;
+}
+
+.logout-btn ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    width: 100%;
+    font-size: 14px;
+    font-weight: 500;
+    text-decoration: none;
+    color: #c3b4b4 !important;
+    li {
+        padding: 1px;
+        width: 100%;
+        cursor: pointer;
+        color: #c3b4b4;
+        &:hover {
+            background-color: #72bad8;
+            color: #fff;
+        }
+        a {
+            text-decoration: none;
+            color: inherit;
+            width: 100%;
+            display: block;
+        }
+    }
 }

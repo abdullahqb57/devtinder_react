@@ -12,7 +12,8 @@ export const handleLogin = async ({email, password}) => {
 
 export const handleLogout = async () => {
     try {
-      await axios.post(`${BASE_URL}logout`, {}, { withCredentials: true});
+      const {data} =await axios.post(`${BASE_URL}logout`, { withCredentials: true});
+      return data;
     } catch (error) {
       console.error('Error during logout:', error);
       throw error;
