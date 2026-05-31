@@ -4,27 +4,22 @@ import axios from 'axios'
 import { useDispatch } from 'react-redux';
 import '../styles/login.css'
 import { addUser } from '../store/userSlice';
+import { useNavigate } from 'react-router-dom';
+import { handleLogin } from '../api/api';
 
 const Login = () => {
 
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const navigate = useNavigate();
   const dispatch = useDispatch();
-  const handleLogin = async ({email, password}) => {
-    try {
-      const {data} = await axios.post('http://localhost:3000/login', {email, password}, { withCredentials: true});
-      return data;
-    } catch (error) {
-      console.error('Error during login:', error);
-      throw error; // Rethrow the error to be caught by onError in useMutation
-    }
-    
-  }
+  
   const loginMutation = useMutation({
     mutationFn: handleLogin,
     onSuccess: (data) => {
       console.log('Login successful:', data?.user);
       dispatch(addUser(data?.user));
+      navigate('/'); // Redirect to home page after successful login
     },
     onError: (error) => {
       console.error('Login failed:', error);
