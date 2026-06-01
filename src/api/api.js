@@ -5,7 +5,6 @@ export const handleLogin = async ({email, password}) => {
       const res = await axios.post(`${BASE_URL}login`, {email, password}, { withCredentials: true});
       return res.data;
     } catch (error) {
-      console.error('Error during login:', error.response?.data || error.message);
       return error.response?.data || error.message;
     }
 }
@@ -28,4 +27,11 @@ export const fetchUser = async () => {
     }
 }
 
-export default { handleLogin, handleLogout, fetchUser };
+export const fetchFeeds = async () => {
+  try {
+    const response = await axios.get(`${BASE_URL}feeds`, { withCredentials: true});
+    return response.data;
+  } catch (error) {
+    return error.response?.data || error.message;
+  }
+}

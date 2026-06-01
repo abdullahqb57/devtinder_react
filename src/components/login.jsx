@@ -18,10 +18,9 @@ const Login = () => {
   const loginMutation = useMutation({
     mutationFn: handleLogin,
     onSuccess: (data) => {
-      console.log('Login successful:', data);
       if(data?.status === 200) {
         dispatch(addUser(data?.user));
-        navigate('/'); 
+        navigate('/feed'); 
       } else if (data?.status === 400) {
         setError(data?.message || 'Login failed. Please check your credentials and try again.');
       }

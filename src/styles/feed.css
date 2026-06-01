@@ -1,0 +1,32 @@
+.feed {
+    height: auto;
+    width: 300px;
+    background-color: #d7c8c8;
+    margin: 10px auto;
+    border-radius: 5px;
+
+}
+
+.feed-image {
+    height: auto;
+    width: 100%;
+    border-top-left-radius: 5px;
+    border-top-right-radius: 5px;
+    object-fit: auto;
+    background-color: #84bac9;
+}
+
+.feed-buttons {
+    display: flex;
+    justify-content: space-around;
+}
+
+.feed-button {
+    background-color: #e7c937;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    margin: 10px 0;
+}

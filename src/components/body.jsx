@@ -10,7 +10,6 @@ const Body = () => {
   const fetchUserData = async () => {
     try {
       const userData = await fetchUser();
-      console.log('Fetched user data:', userData);
       if(userData?.status === 401) {
         navigate('/login'); // Redirect to login page if unauthorized
       }
@@ -21,7 +20,6 @@ const Body = () => {
   }
 
   useEffect(() => {
-    console.log('User details from Redux:', userDetails);
     if(!userDetails?.firstName) {
       fetchUserData();
     }

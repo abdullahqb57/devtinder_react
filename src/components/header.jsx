@@ -12,7 +12,6 @@ const Header = () => {
     const {userDetails} = useSelector((state) => state.user);
     const navigate = useNavigate();
     const dispatch = useDispatch();
-    console.log('User details from Redux store:', userDetails);
     const logout = async () => {
         try {
             const response =await handleLogout();
