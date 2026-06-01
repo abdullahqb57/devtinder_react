@@ -3,6 +3,7 @@ import '../styles/profile.css'
 import {useSelector} from 'react-redux'
 import {updateProfile} from '../api/api'
 
+// TODO: SHOW TOAST
 const profile = () => {
     const [profileData, setProfileData] = useState({
         firstName: '',
@@ -68,7 +69,7 @@ const profile = () => {
             <button type='submit' className='profile-button'>Submit</button>
         </form>
         <div className='feed'>
-            <img src={profileData?.photoUrl} alt="Feed" className='feed-image' />
+            <img src={profileData?.photoUrl || undefined} alt="Feed" className='feed-image' />
             <h2>{profileData?.firstName} {profileData?.lastName}</h2>
             <h3>{profileData?.about}</h3>
             <div className='feed-buttons'>

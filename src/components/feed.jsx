@@ -11,8 +11,6 @@ const Feed = () => {
     const getFeeds = async () => {
         const data = await fetchFeeds();
         dispatch(setFeeds(data?.connections || []));
-        console.log('Feeds data:', data);
-        console.log('Feeds from Redux:', feeds);
     }
     useEffect(() => {
         getFeeds();
@@ -20,7 +18,7 @@ const Feed = () => {
   return (
     <>
     {feeds?.length > 0 && <div className='feed'>
-        <img src={feeds[0]?.photoUrl} alt="Feed" className='feed-image' />
+        <img src={feeds[0]?.photoUrl || undefined} alt="Feed" className='feed-image' />
         <h2>{feeds[0]?.firstName} {feeds[0]?.lastName}</h2>
         <h3>{feeds[0]?.about}</h3>
         <div className='feed-buttons'>

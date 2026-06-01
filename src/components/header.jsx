@@ -26,7 +26,7 @@ const Header = () => {
     }
     return (
         <div className='header'>
-            <Link to="/feed" className='header-name'> Dev Tinder</Link>
+            <Link to="/" className='header-name'> Dev Tinder</Link>
             <div className='user-info'>
             <h2 className='header-name'>Welcome {userDetails?.firstName || 'Guest' }</h2>
             <img src={userDetails?.photoUrl || smile} alt="hero" className='hero-img' onClick={() => setToggleMenu(!toggleMenu)} />
@@ -34,7 +34,8 @@ const Header = () => {
                 <div className='logout-btn'>
                 <ul>
                     <li><Link to="/profile">Profile</Link></li>
-                    <li><Link to="/settings">Settings</Link></li>
+                    <li><Link to="/connections">Connections</Link></li>
+                    <li><Link to="/requests">Requests</Link></li>
                     <li><Link onClick={logout}>Logout</Link></li>
                 </ul>
             </div>
