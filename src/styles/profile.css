@@ -1,0 +1,36 @@
+.profile {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 20px auto;
+    height: auto;
+    width: 100%;
+}
+
+.profile-form {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin:  10px auto;
+    height: auto;
+    width: 225px;
+    background-color: #8c8ddf;
+    padding: 20px;
+    border-radius: 10px;
+}
+
+.profile-button {
+    margin-top: 20px;
+    padding: 10px 20px;
+    background-color: #4CAF50;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.error-message {
+    color: red;
+    margin-top: 10px;
+}

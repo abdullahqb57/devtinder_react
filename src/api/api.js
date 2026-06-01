@@ -35,3 +35,12 @@ export const fetchFeeds = async () => {
     return error.response?.data || error.message;
   }
 }
+
+export const updateProfile = async (profileData) => {
+  try {
+    const response = await axios.patch(`${BASE_URL}profile/edit`, profileData, { withCredentials: true});
+    return response.data;
+  } catch (error) {
+    return error.response?.data || error.message;
+  }
+}

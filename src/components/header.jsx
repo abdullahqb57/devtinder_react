@@ -26,7 +26,7 @@ const Header = () => {
     }
     return (
         <div className='header'>
-            <h2 className='header-name'> Dev Tinder</h2>
+            <Link to="/feed" className='header-name'> Dev Tinder</Link>
             <div className='user-info'>
             <h2 className='header-name'>Welcome {userDetails?.firstName || 'Guest' }</h2>
             <img src={userDetails?.photoUrl || smile} alt="hero" className='hero-img' onClick={() => setToggleMenu(!toggleMenu)} />
