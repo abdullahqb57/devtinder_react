@@ -59,12 +59,12 @@ const profile = () => {
   return (
     <div className='profile'>
         <form action="" method="post" className='profile-form' onSubmit={handleSubmit}>
-            First Name: <input type="text" placeholder='First Name' name='firstName' value={profileData.firstName} onChange={handleChange} />
-            Last Name: <input type="text" placeholder='Last Name' name='lastName' value={profileData.lastName} onChange={handleChange} />
-            Photo URL: <input type="text" placeholder='Photo URL' name='photoUrl' value={profileData.photoUrl} onChange={handleChange} />
-            About: <input type="text" placeholder='About' name='about' value={profileData.about} onChange={handleChange} />
-            Age: <input type="text" placeholder='Age' name='age' value={profileData.age} onChange={handleChange} />
-            Gender: <input type="text" placeholder='Gender' name='gender' value={profileData.gender} onChange={handleChange} />
+           <div><label htmlFor="firstName">First Name:</label> <input className='login-input' type="text" placeholder='First Name' name='firstName' value={profileData.firstName} onChange={handleChange} /> </div>
+            <div><label htmlFor="lastName">Last Name:</label> <input className='login-input' type="text" placeholder='Last Name' name='lastName' value={profileData.lastName} onChange={handleChange} /></div>
+            <div><label htmlFor="photoUrl">Photo URL:</label> <input className='login-input' type="text" placeholder='Photo URL' name='photoUrl' value={profileData.photoUrl} onChange={handleChange} /></div>
+            <div><label htmlFor="about">About:</label> <input className='login-input' type="text" placeholder='About' name='about' value={profileData.about} onChange={handleChange} /></div>
+            <div><label htmlFor="age">Age:</label> <input className='login-input' type="text" placeholder='Age' name='age' value={profileData.age} onChange={handleChange} /></div>
+            <div><label htmlFor="gender">Gender:</label> <input className='login-input' type="text" placeholder='Gender' name='gender' value={profileData.gender} onChange={handleChange} /></div>
             Error: <span className='error-message'>{profileData.error}</span>
             <button type='submit' className='profile-button'>Submit</button>
         </form>

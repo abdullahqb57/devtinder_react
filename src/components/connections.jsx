@@ -27,6 +27,7 @@ const Connections = () => {
     return (
         <div>
             <h2>Connections</h2>
+            {connections?.length === 0 && <p className='no-connections'>You have no connections yet. Please check back later.</p>}
             <ul>
                 {connections.map((connection) => (
                     <div className='connection-card' key={connection?._id}>

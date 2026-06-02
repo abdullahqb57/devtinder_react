@@ -4,19 +4,20 @@
     display: flex;
     align-items: center;
     gap: 0;
-    padding: 0;
-    border: 1px solid #ccc;
-    border-radius: 8px;
-    margin-bottom: 0;
-    background-color: #e98cdb;
+    padding: 16px;
+    border: 1px solid #fbcfe8;
+    border-radius: 22px;
+    margin-bottom: 16px;
+    background-color: #fff0f6;
+    box-shadow: 0 14px 28px rgba(236, 72, 153, 0.12);
 }
 
 .connection-image {
-    height: 130px;
-    width: auto;
+    height: 110px;
+    width: 110px;
     border-radius: 50%;
     object-fit: cover;
-    border: 2px solid #72bad8;
+    border: 3px solid #ec4899;
 }
 
 .connection-info {
@@ -24,20 +25,25 @@
     flex-direction: column;
     align-items: flex-start;
     margin: 0;
-    padding: 0;
-    gap: 0;
+    padding-left: 16px;
+    gap: 4px;
 }
 
 .connection-info * {
-    margin: 5px;
+    margin: 4px 0;
 }
 
 .req-button {
-    padding: 5px 10px;
+    padding: 8px 14px;
     margin: 5px;
     border: none;
-    border-radius: 4px;
+    border-radius: 999px;
     cursor: pointer;
-    background-color: #72bad8;
+    background-color: #22c55e;
     color: white;
+}
+.no-connections {
+    text-align: center;
+    color: var(--muted);
+    margin-top: 20px;
 }

@@ -1,27 +1,29 @@
 .header {
-    height: 60px;
+    height: 72px;
     width: 100%;
-    background-color: #242222;
+    background: linear-gradient(90deg, #fbcfe8 0%, #a5b4fc 100%);
     display: flex;
     justify-content: space-between;
     align-items: center;
+    padding: 0 26px;
+    box-shadow: 0 12px 32px rgba(99, 102, 241, 0.12);
 }
 
 .header-name {
-    font-size: 24px;
-    font-weight: bold;
-    color: #bba2a2;
-    margin-left: 20px;
+    font-size: 26px;
+    font-weight: 800;
+    color: #111827;
+    margin-left: 10px;
 }
 
 .hero-img {
-    padding: 3px;
-    height: 25px;
-    width: 25px;
+    padding: 4px;
+    height: 30px;
+    width: 30px;
     object-fit: cover;
     border-radius: 50%;
-    border: 2px solid #72bad8;
-    margin:  0 20px;
+    border: 2px solid #14b8a6;
+    margin: 0 20px;
     cursor: pointer;
     position: relative;
 }
@@ -33,15 +35,15 @@
 
 .logout-btn {
     position: absolute;
-    top: 44px;
-    right: 0px;
-    height: 86px;
-    width: 114px;
-    background-color: #242222;
-    color: #fff;
-    border:#bba2a2 solid 1px;
+    top: 58px;
+    right: 10px;
+    height: auto;
+    width: 150px;
+    background-color: #f8fafc;
+    color: #0f172a;
+    border: 1px solid rgba(99, 102, 241, 0.18);
     display: flex;
-    border-radius: 5px;
+    border-radius: 16px;
 }
 
 .logout-btn ul {
@@ -50,23 +52,25 @@
     margin: 0;
     width: 100%;
     font-size: 14px;
-    font-weight: 500;
+    font-weight: 600;
+    color: #475569 !important;
+}
+
+.logout-btn ul li {
+    padding: 8px 10px;
+    width: 100%;
+    cursor: pointer;
+    color: #475569;
+}
+
+.logout-btn ul li:hover {
+    background-color: rgba(236, 72, 153, 0.12);
+    color: #111827;
+}
+
+.logout-btn ul li a {
     text-decoration: none;
-    color: #c3b4b4 !important;
-    li {
-        padding: 1px;
-        width: 100%;
-        cursor: pointer;
-        color: #c3b4b4;
-        &:hover {
-            background-color: #72bad8;
-            color: #fff;
-        }
-        a {
-            text-decoration: none;
-            color: inherit;
-            width: 100%;
-            display: block;
-        }
-    }
+    color: inherit;
+    width: 100%;
+    display: block;
 }

@@ -3,7 +3,7 @@ import '../styles/connections.css'
 import { useSelector } from 'react-redux';
 import {userRequests} from '../api/api'
 import { useDispatch } from 'react-redux';
-import {sendConnectionRequest} from '../api/api';
+import {reviewConnectionRequest} from '../api/api';
 
 
 const Requests = () => {
@@ -22,7 +22,7 @@ const Requests = () => {
 
     const reqButton = async (status, requestId) => {
         try {
-            const response = await sendConnectionRequest(status, requestId);
+            const response = await reviewConnectionRequest(status, requestId);
             console.log('Response from server:', response);
             if (response?.status === 200) {
                 getConnections();
@@ -41,6 +41,7 @@ const Requests = () => {
     return (
         <div>
             <h2>Requests</h2>
+            {requests?.length === 0 && <p className='no-connections'>You have no connection requests at the moment. Please check back later.</p>}
             <ul>
                 {requests.map((request) => (
                     <div className='connection-card' key={request?.fromUserId?._id}>

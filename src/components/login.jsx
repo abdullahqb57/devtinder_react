@@ -144,8 +144,8 @@ const Login = () => {
             <button className='login-button' onClick = {isLogin ? onSubmit : onSignup}>
                 {isLogin ? 'Login' : 'Sign Up'}
               </button>
-            <p className='toggle-text' onClick={() => setIsLogin(!isLogin)}>
-                {isLogin ? "Don't have an account? Sign Up" : "Already have an account? Login"}
+            <p className='toggle-text'>
+                {isLogin ? "Don't have an account?" : "Already have an account?"} <span onClick={() => setIsLogin(!isLogin)}>{isLogin ? "Sign Up" : "Login"}</span>
             </p>
     </div>
   )

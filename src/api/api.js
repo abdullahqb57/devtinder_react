@@ -72,12 +72,23 @@ export const userRequests = async () => {
   }
 }
 
-export const sendConnectionRequest = async (status, toUserId) => {
+export const reviewConnectionRequest = async (status, toUserId) => {
   try {    
-    const response = await axios.post(`${BASE_URL}request/review/${status}/${toUserId}`, { withCredentials: true });
+    const response = await axios.post(`${BASE_URL}request/review/${status}/${toUserId}`, {}, { withCredentials: true });
     return response.data;
-  } catch (error) {    return error.response?.data || error.message;
-  }}
+  } catch (error) {
+    return error.response?.data || error.message;
+  }
+}
+
+export const sendConnectionRequest = async (status, toUserId) => {
+  try {
+    const response = await axios.post(`${BASE_URL}request/send/${status}/${toUserId}`, {}, { withCredentials: true });
+    return response.data;
+  } catch (error) {
+    return error.response?.data || error.message;
+  }
+}
 
 export const respondToConnectionRequest = async (requestId, action) => {
   try {
