@@ -17,7 +17,6 @@ const profile = () => {
     const userDetails = useSelector((state) => state.user.userDetails);
 
     useEffect(() => {
-        console.log('User Details from Redux:', userDetails);
         if (userDetails) {
             setProfileData({
                 firstName: userDetails.firstName || '',
@@ -32,7 +31,6 @@ const profile = () => {
 
     const handleChange = (e) => {
         const { name, value } = e.target;
-        console.log('Input Change:', name, value);
         setProfileData((prevData) => ({
             ...prevData,
             [name]: value

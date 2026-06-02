@@ -39,6 +39,7 @@ export const fetchUser = async () => {
 export const fetchFeeds = async () => {
   try {
     const response = await axios.get(`${BASE_URL}feeds`, { withCredentials: true});
+    console.log('Feeds response:AXIOS', response);
     return response.data;
   } catch (error) {
     return error.response?.data || error.message;

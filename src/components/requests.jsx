@@ -13,7 +13,6 @@ const Requests = () => {
     const getConnections = async () => {
         try {
             const data = await userRequests();
-            console.log('Requests data:', data);
             setRequests(data?.connectionRequests || []);
         } catch (error) {
             console.error('Error fetching requests:', error);
