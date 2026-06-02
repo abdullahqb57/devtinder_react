@@ -42,7 +42,8 @@ export const fetchFeeds = async () => {
     console.log('Feeds response:AXIOS', response);
     return response.data;
   } catch (error) {
-    return error.response?.data || error.message;
+    const err = error.response?.data || new Error(error.message);
+    throw err;
   }
 }
 

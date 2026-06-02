@@ -6,7 +6,7 @@ import '../styles/feed.css'
 const Feed = () => {
   const [feeds, setFeeds] = useState([])
 
-  const { data, isLoading, isError, refetch } = useQuery({
+  const { data, error, isLoading, isError, refetch } = useQuery({
     queryKey: ['feeds'],
     queryFn: fetchFeeds,
     staleTime: 1 * 60 * 1000,
@@ -15,8 +15,10 @@ const Feed = () => {
 
   useEffect(() => {
     console.log('Feeds data:~~~~~~~~~~~~', data)
-    if (data?.connections.length > 0) {
-      setFeeds(Array.isArray(data.connections) ? data.connections : [])
+    if (Array.isArray(data?.connections) && data.connections.length > 0) {
+      setFeeds(data.connections)
+    } else {
+      setFeeds([])
     }
   }, [data])
 
@@ -36,7 +38,7 @@ const Feed = () => {
   }
 
   if (isError) {
-    return <p className='error'>Unable to load feed. Please try again later.</p>
+    return <p className='error'>Unable to load feed. {error?.message || 'Please try again later.'}</p>
   }
 
   if (feeds.length === 0) {
