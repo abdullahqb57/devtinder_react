@@ -4,11 +4,13 @@ import { useSelector } from 'react-redux';
 import {userConnections} from '../api/api'
 import { useDispatch } from 'react-redux';
 import { setUserConnections } from '../store/userSlice';
+import { useNavigate } from 'react-router-dom';
 
 
 const Connections = () => {
     const dispatch = useDispatch();
     const connections = useSelector((state) => state.user.userConnections);
+    const navigate = useNavigate();
 
     const getConnections = async () => {
         try {
@@ -36,6 +38,9 @@ const Connections = () => {
                             <h4>{connection?.age} years old, {connection?.gender}</h4>
                             <p>{connection?.about}</p>
                         </div>
+                        <button className='chat-button' onClick={() => navigate(`/chat/${connection?._id}`)}>
+                            Chat
+                        </button>
                     </div>
                 ))}
             </ul>

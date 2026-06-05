@@ -11,6 +11,7 @@ import Feed from './components/feed';
 import Profile from './components/profile';
 import Connections from './components/connections';
 import Requests from './components/requests';
+import Chat from './components/chat';
 
 function App() {
 
@@ -25,6 +26,7 @@ function App() {
           <Route path="/profile" element={<Profile />} />
           <Route path="/connections" element={<Connections />} />
           <Route path="/requests" element={<Requests />} />
+          <Route path="/chat/:targetUserId" element={<Chat />} />
         </Route>
       </Routes>
       <Footer />
