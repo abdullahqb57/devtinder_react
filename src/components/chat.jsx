@@ -14,7 +14,8 @@ const chat = () => {
       if(newMessage.trim() === '') return;
       const socket = createSocketConnection();
       socket.emit('sendMessage', {firstName: userDetails.firstName, userId: userDetails._id, targetId: targetUserId, message: newMessage});
-      setMessages([...messages, `You: ${newMessage}`]);
+      console.log('Sent message:', {firstName: userDetails.firstName,message: newMessage});
+      setMessages(messages => [...messages, `You: ${newMessage}`]);
       setNewMessage('');
     }
     useEffect(() => {
@@ -22,6 +23,11 @@ const chat = () => {
       if(!targetUserId || !userDetails) return;
       const socket = createSocketConnection();
       socket.emit('joinChat', {userId: userDetails._id, targetId: targetUserId});
+      socket.on('receiveMessage', ({firstName, message}) => {
+        
+        console.log('Received message:', {firstName, message});
+        setMessages((prevMessages) => [...prevMessages, `${firstName}: ${message}`]);
+      });
 
       return () => {
         socket.disconnect();
