@@ -3,13 +3,14 @@ import {useParams} from 'react-router-dom'
 import '../styles/chat.css'
 import  {useSelector} from 'react-redux';
 import {createSocketConnection} from '../utils/socket.js';
+import {fetchChatHistory} from '../api/api.js';
 
 const chat = () => {
     const {targetUserId} = useParams();
     const [messages, setMessages] = useState([]);
     const [newMessage, setNewMessage] = useState('');
     const {userDetails} = useSelector((state) => state.user);
-
+  console.log('messages', messages);
     const sendMessage = () => {
       if(newMessage.trim() === '') return;
       const socket = createSocketConnection();
@@ -18,6 +19,21 @@ const chat = () => {
       // setMessages(messages => [...messages, `You: ${newMessage}`]);
       setNewMessage('');
     }
+
+    const loadChatHistory = async () => {
+        const { chat} = await fetchChatHistory(userDetails._id, targetUserId);
+        if(Array.isArray(chat?.messages)) {
+          setMessages(chat.messages);
+        } else {
+          console.error('Unexpected chat history format:', chat);
+        }
+      };
+
+    useEffect(() => {
+      
+      loadChatHistory();
+    }, [userDetails._id, targetUserId]);
+
     useEffect(() => {
       console.log('Setting up chat socket connection...', userDetails, targetUserId);
       if(!userDetails?._id) return;
@@ -25,7 +41,7 @@ const chat = () => {
       socket.emit('joinChat', {userId: userDetails._id, targetId: targetUserId});
       socket.on('receiveMessage', ({firstName, message}) => {
         console.log('Received message:', {firstName, message});
-        setMessages((prevMessages) => [...prevMessages, `${firstName}: ${message}`]);
+        setMessages((prevMessages) => [...prevMessages, `${userDetails.firstName === firstName ? 'You' : firstName}: ${message}`]);
       });
 
       return () => {

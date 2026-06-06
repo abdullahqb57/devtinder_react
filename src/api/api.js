@@ -100,3 +100,18 @@ export const respondToConnectionRequest = async (requestId, action) => {
     return error.response?.data || error.message;
   }
 }
+
+export const fetchChatHistory = async (userId, targetId) => {
+  try {
+    const response = await axios.get(`${BASE_URL}chat/${userId}/${targetId}`, {
+      withCredentials: true
+    });
+    if (response.status === 200) {
+      return response.data;
+    } else {
+      console.error('Failed to fetch chat history:', response.status, response.data);
+    } 
+  } catch (error) {
+    return error.response?.data || error.message;
+  }
+}
